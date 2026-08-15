@@ -300,6 +300,34 @@ function Landing() {
         </div>
       </section>
 
+      {/* EQUIPÁ TU PISCINA */}
+      <section className="border-t border-border/50 bg-secondary/20 py-16">
+        <div className="mx-auto max-w-6xl px-4 text-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Tienda online
+          </span>
+          <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Equipá tu piscina</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            Bombas, filtros, climatización, iluminación LED, químicos y limpieza. Comprá online con
+            envíos a todo Uruguay.
+          </p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              to="/accesorios"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-violet)] transition hover:opacity-95"
+            >
+              <ShoppingCart className="h-5 w-5" /> Ver accesorios
+            </Link>
+            <Link
+              to="/ofertas"
+              className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-4 text-base font-semibold transition hover:border-primary"
+            >
+              Ver ofertas
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="border-t border-border/50 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 text-center">
