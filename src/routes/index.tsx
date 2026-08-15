@@ -1,6 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram } from "lucide-react";
+import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram, ShoppingCart } from "lucide-react";
+
+import { SiteNav } from "@/components/shop/SiteNav";
 
 import logo from "@/assets/logo.jpg.asset.json";
 import poolHero from "@/assets/pool-hero.jpg.asset.json";
@@ -34,24 +36,7 @@ function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="fixed top-0 z-40 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <div className="h-9 w-9 overflow-hidden rounded-md bg-white">
-              <img src={logo.url} alt="PoolHaus" className="h-full w-full object-contain" />
-            </div>
-            <span className="text-lg font-bold tracking-tight">POOLHAUS</span>
-          </div>
-          <a
-            href={waLink("Hola PoolHaus, quiero información.")}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-violet)] transition hover:opacity-90"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">WhatsApp</span>
-            <span className="sm:hidden">{WHATSAPP_DISPLAY}</span>
-          </a>
-        </div>
-      </header>
+      <SiteNav />
 
       {/* HERO */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-16">
@@ -312,6 +297,34 @@ function Landing() {
               Sin spam. Respondemos en minutos.
             </p>
           </form>
+        </div>
+      </section>
+
+      {/* EQUIPÁ TU PISCINA */}
+      <section className="border-t border-border/50 bg-secondary/20 py-16">
+        <div className="mx-auto max-w-6xl px-4 text-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Tienda online
+          </span>
+          <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Equipá tu piscina</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            Bombas, filtros, climatización, iluminación LED, químicos y limpieza. Comprá online con
+            envíos a todo Uruguay.
+          </p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              to="/accesorios"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-violet)] transition hover:opacity-95"
+            >
+              <ShoppingCart className="h-5 w-5" /> Ver accesorios
+            </Link>
+            <Link
+              to="/ofertas"
+              className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-4 text-base font-semibold transition hover:border-primary"
+            >
+              Ver ofertas
+            </Link>
+          </div>
         </div>
       </section>
 
