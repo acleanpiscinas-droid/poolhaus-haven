@@ -1,6 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram } from "lucide-react";
+import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram, ShoppingCart } from "lucide-react";
+
+import { SiteNav } from "@/components/shop/SiteNav";
 
 import logo from "@/assets/logo.jpg.asset.json";
 import poolHero from "@/assets/pool-hero.jpg.asset.json";
