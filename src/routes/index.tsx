@@ -34,24 +34,7 @@ function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="fixed top-0 z-40 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <div className="h-9 w-9 overflow-hidden rounded-md bg-white">
-              <img src={logo.url} alt="PoolHaus" className="h-full w-full object-contain" />
-            </div>
-            <span className="text-lg font-bold tracking-tight">POOLHAUS</span>
-          </div>
-          <a
-            href={waLink("Hola PoolHaus, quiero información.")}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-violet)] transition hover:opacity-90"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">WhatsApp</span>
-            <span className="sm:hidden">{WHATSAPP_DISPLAY}</span>
-          </a>
-        </div>
-      </header>
+      <SiteNav />
 
       {/* HERO */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-16">
