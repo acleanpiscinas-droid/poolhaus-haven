@@ -23,7 +23,7 @@ const emptyProduct = {
   name: "",
   slug: "",
   brand: "",
-  category: CATEGORIES[0].slug,
+  category: CATEGORIES[0].slug as string,
   short_description: "",
   description: "",
   price: "0",
