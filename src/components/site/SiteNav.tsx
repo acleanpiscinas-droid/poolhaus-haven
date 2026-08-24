@@ -1,25 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, ShoppingCart, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, Calculator } from "lucide-react";
 import { useState } from "react";
 
 import logo from "@/assets/logo.jpg.asset.json";
-import { useCart } from "@/lib/shop/cart";
 import { waLink, WHATSAPP_DISPLAY } from "@/lib/contact";
 
-type NavItem = { label: string; to?: string; href?: string; search?: Record<string, string> };
+type NavItem = { label: string; to?: string; href?: string };
 
 const ITEMS: NavItem[] = [
   { label: "Inicio", to: "/" },
   { label: "Piscinas", href: "/#modelos" },
   { label: "Módulos", href: "/#modelos" },
-  { label: "Accesorios", to: "/accesorios" },
-  { label: "Climatización", to: "/accesorios", search: { cat: "climatizacion" } },
-  { label: "Ofertas", to: "/ofertas" },
+  { label: "SmartPool", to: "/calculadora" },
   { label: "Contacto", href: "/#cotizar" },
 ];
 
 export function SiteNav() {
-  const { count } = useCart();
   const [open, setOpen] = useState(false);
 
   return (
@@ -38,7 +34,6 @@ export function SiteNav() {
               <Link
                 key={item.label}
                 to={item.to}
-                search={item.search as never}
                 className="text-sm font-medium text-muted-foreground transition hover:text-primary"
               >
                 {item.label}
@@ -57,16 +52,11 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <Link
-            to="/carrito"
-            aria-label="Ver carrito"
-            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 transition hover:border-primary/60"
+            to="/calculadora"
+            aria-label="Abrir SmartPool"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 transition hover:border-primary/60 lg:hidden"
           >
-            <ShoppingCart className="h-5 w-5" />
-            {count > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground">
-                {count}
-              </span>
-            )}
+            <Calculator className="h-5 w-5" />
           </Link>
           <a
             href={waLink("Hola PoolHaus, quiero información.")}
@@ -95,7 +85,6 @@ export function SiteNav() {
                 <Link
                   key={item.label}
                   to={item.to}
-                  search={item.search as never}
                   onClick={() => setOpen(false)}
                   className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
                 >
