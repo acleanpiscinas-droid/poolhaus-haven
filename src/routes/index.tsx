@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram, ShoppingCart } from "lucide-react";
 
-import { SiteNav } from "@/components/shop/SiteNav";
+import { SiteNav } from "@/components/site/SiteNav";
 
 import logo from "@/assets/logo.jpg.asset.json";
 import poolHero from "@/assets/pool-hero.jpg.asset.json";
@@ -300,29 +300,23 @@ function Landing() {
         </div>
       </section>
 
-      {/* EQUIPÁ TU PISCINA */}
+      {/* SMARTPOOL */}
       <section className="border-t border-border/50 bg-secondary/20 py-16">
         <div className="mx-auto max-w-6xl px-4 text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Tienda online
+            Herramienta gratuita
           </span>
-          <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Equipá tu piscina</h2>
+          <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">PoolHaus SmartPool</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            Bombas, filtros, climatización, iluminación LED, químicos y limpieza. Comprá online con
-            envíos a todo Uruguay.
+            Calculá el volumen de tu piscina, el cloro shock, la sal y seguí el protocolo PoolHaus
+            para agua verde. Todo en minutos, desde el celular.
           </p>
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex justify-center">
             <Link
-              to="/accesorios"
+              to="/calculadora"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-violet)] transition hover:opacity-95"
             >
-              <ShoppingCart className="h-5 w-5" /> Ver accesorios
-            </Link>
-            <Link
-              to="/ofertas"
-              className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-4 text-base font-semibold transition hover:border-primary"
-            >
-              Ver ofertas
+              <Calculator className="h-5 w-5" /> Abrir la calculadora
             </Link>
           </div>
         </div>
