@@ -9,6 +9,7 @@ type NavItem = { label: string; to?: string; href?: string };
 
 const ITEMS: NavItem[] = [
   { label: "Inicio", to: "/" },
+  { label: "Catálogo", to: "/catalogo" },
   { label: "Piscinas", href: "/#modelos" },
   { label: "Módulos", href: "/#modelos" },
   { label: "SmartPool", to: "/calculadora" },
