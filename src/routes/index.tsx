@@ -80,12 +80,12 @@ function Landing() {
                 <MessageCircle className="h-5 w-5" />
                 Cotizar por WhatsApp ahora
               </a>
-              <a
-                href="#modelos"
+              <Link
+                to="/catalogo"
                 className="inline-flex items-center justify-center rounded-full border border-border bg-secondary/50 px-6 py-4 text-base font-semibold text-foreground transition hover:bg-secondary"
               >
-                Ver modelos disponibles
-              </a>
+                Ver catálogo y precios
+              </Link>
             </div>
           </div>
         </div>
