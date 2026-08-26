@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram, ShoppingCart } from "lucide-react";
+import { MessageCircle, Check, Home, Waves, Zap, MapPin, Clock, Shield, Phone, Instagram, Calculator } from "lucide-react";
 
 import { SiteNav } from "@/components/site/SiteNav";
 
