@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, Menu, X, Calculator } from "lucide-react";
+import { MessageCircle, Menu, X, Calculator, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
 import logo from "@/assets/logo.jpg.asset.json";
+import { useCart } from "@/lib/cart";
 import { waLink, WHATSAPP_DISPLAY } from "@/lib/contact";
 
 type NavItem = { label: string; to?: string; href?: string };
