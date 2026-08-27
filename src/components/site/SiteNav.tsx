@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, Menu, X, Calculator } from "lucide-react";
+import { MessageCircle, Menu, X, Calculator, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
 import logo from "@/assets/logo.jpg.asset.json";
+import { useCart } from "@/lib/cart";
 import { waLink, WHATSAPP_DISPLAY } from "@/lib/contact";
 
 type NavItem = { label: string; to?: string; href?: string };
@@ -18,6 +19,7 @@ const ITEMS: NavItem[] = [
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const { count, setOpen: setCartOpen } = useCart();
 
   return (
     <header className="fixed top-0 z-40 w-full border-b border-border/50 bg-background/85 backdrop-blur-md">
@@ -52,6 +54,19 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setCartOpen(true)}
+            aria-label={`Abrir carrito (${count} ítems)`}
+            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 transition hover:border-primary/60"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {count > 0 && (
+              <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground">
+                {count}
+              </span>
+            )}
+          </button>
           <Link
             to="/calculadora"
             aria-label="Abrir SmartPool"
