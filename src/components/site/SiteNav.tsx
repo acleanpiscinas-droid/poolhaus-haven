@@ -56,7 +56,7 @@ export function SiteNav() {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => setOpen2(true)}
+            onClick={() => setCartOpen(true)}
             aria-label={`Abrir carrito (${count} ítems)`}
             className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 transition hover:border-primary/60"
           >
