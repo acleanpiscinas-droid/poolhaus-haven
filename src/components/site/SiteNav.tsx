@@ -52,6 +52,19 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setOpen2(true)}
+            aria-label={`Abrir carrito (${count} ítems)`}
+            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 transition hover:border-primary/60"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {count > 0 && (
+              <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground">
+                {count}
+              </span>
+            )}
+          </button>
           <Link
             to="/calculadora"
             aria-label="Abrir SmartPool"
