@@ -19,6 +19,7 @@ const ITEMS: NavItem[] = [
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const { count, setOpen: setCartOpen } = useCart();
 
   return (
     <header className="fixed top-0 z-40 w-full border-b border-border/50 bg-background/85 backdrop-blur-md">
