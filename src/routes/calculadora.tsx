@@ -20,6 +20,8 @@ import {
   formatKg,
   formatLiters,
   litersFromInput,
+  mirrorFromShell,
+  formatMeters,
   type DepthInput,
 } from "@/lib/calculations/volume";
 import {
@@ -99,9 +101,12 @@ function SmartPool() {
       ? { mode: "uniforme", depth: num(depth) }
       : { mode: "variable", minDepth: num(minDepth), maxDepth: num(maxDepth) };
 
+  const mirrorLength = mirrorFromShell(num(length));
+  const mirrorWidth = mirrorFromShell(num(width));
+
   const liters = useMemo(() => {
-    const l = num(length);
-    const w = num(width);
+    const l = mirrorFromShell(num(length));
+    const w = mirrorFromShell(num(width));
     const d =
       depthMode === "uniforme"
         ? num(depth)
@@ -238,13 +243,22 @@ function SmartPool() {
                 <Ruler className="h-5 w-5 text-primary" /> Medidas de tu piscina
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Ingresá las medidas en metros del espejo de agua.
+                Ingresá las medidas del casco en metros. El espejo de agua mide 30 cm menos que el
+                casco en cada dimensión (ej.: casco 7 × 3 m → espejo 6,70 × 2,70 m).
               </p>
 
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <Field label="Largo (m)" value={length} onChange={setLength} placeholder="7" />
-                <Field label="Ancho (m)" value={width} onChange={setWidth} placeholder="3" />
+                <Field label="Largo del casco (m)" value={length} onChange={setLength} placeholder="7" />
+                <Field label="Ancho del casco (m)" value={width} onChange={setWidth} placeholder="3" />
               </div>
+
+              {mirrorLength > 0 && mirrorWidth > 0 && (
+                <p className="mt-3 rounded-lg bg-secondary/60 px-3 py-2 text-xs text-muted-foreground">
+                  Espejo de agua: {formatMeters(mirrorLength)} × {formatMeters(mirrorWidth)} ·{" "}
+                  {(mirrorLength * mirrorWidth).toLocaleString("es-UY", { maximumFractionDigits: 1 })} m²
+                  (usado para el litraje)
+                </p>
+              )}
 
               <div className="mt-5">
                 <span className="mb-2 block text-sm font-semibold">Profundidad</span>

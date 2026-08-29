@@ -13,6 +13,8 @@ import filtro2 from "@/assets/cat-img_p11_2.jpg.asset.json";
 import clorador from "@/assets/cat-img_p12_1.jpg.asset.json";
 import robot1 from "@/assets/cat-img_p12_2.jpg.asset.json";
 import robot2 from "@/assets/cat-img_p13_1.jpg.asset.json";
+import mantaTermica from "@/assets/manta-termica.jpg";
+import enrolladorManta from "@/assets/enrollador-manta.jpg";
 
 export const CATALOG_VERSION = "Catálogo comercial · Versión 1 · Agosto 2026";
 
@@ -183,7 +185,7 @@ export const FILTRATION: TableSpec[] = [
       ["Sal para piscinas", "US$ 16"],
       ["Arena de filtro", "US$ 16"],
     ],
-    note: "Mantas térmicas, enrolladores, módulos habitacionales e instalación: consultanos por WhatsApp.",
+    note: "Módulos habitacionales e instalación: consultanos por WhatsApp.",
   },
 ];
 
@@ -222,3 +224,30 @@ export const ROBOTS: Robot[] = [
 
 export const ROBOTS_NOTE =
   "Limpiafondos manuales: línea en evaluación, sin modelos confirmados por el momento.";
+
+/** Extras: mantas térmicas y enrolladores. */
+export type Extra = {
+  name: string;
+  detail: string;
+  price: string;
+  unit?: string;
+  image: string;
+  note?: string;
+};
+
+export const EXTRAS: Extra[] = [
+  {
+    name: "Manta térmica",
+    detail: "Cobertor térmico a medida · precio por m²",
+    price: "US$ 9",
+    unit: "m²",
+    image: mantaTermica,
+    note: "Se calcula por los m² del espejo de agua. Ej.: espejo 6,70 × 2,70 m = 18,1 m² ≈ US$ 163.",
+  },
+  {
+    name: "Enrollador de manta",
+    detail: "Enrollador de aluminio para manta térmica",
+    price: "US$ 270",
+    image: enrolladorManta,
+  },
+];

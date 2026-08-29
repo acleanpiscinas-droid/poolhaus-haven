@@ -3,6 +3,15 @@
  * Todas las medidas en metros. Resultado en litros.
  */
 
+/** El espejo de agua mide 30 cm menos que el casco en cada lado (ej.: 7 × 3 → 6,70 × 2,70). */
+export const MIRROR_OFFSET_M = 0.3;
+
+export const mirrorFromShell = (m: number): number =>
+  Number.isFinite(m) ? Math.max(m - MIRROR_OFFSET_M, 0) : NaN;
+
+export const formatMeters = (m: number): string =>
+  `${m.toLocaleString("es-UY", { maximumFractionDigits: 2 })} m`;
+
 export type DepthInput =
   | { mode: "uniforme"; depth: number }
   | { mode: "variable"; minDepth: number; maxDepth: number };
