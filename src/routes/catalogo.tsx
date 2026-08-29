@@ -157,6 +157,8 @@ function Catalogo() {
         </div>
       </section>
 
+      <CatalogFinder />
+
       {/* PISCINAS */}
       <section id="piscinas" className="py-16">
         <div className="mx-auto max-w-6xl px-4">
