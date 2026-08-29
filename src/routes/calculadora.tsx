@@ -32,6 +32,12 @@ import { DIAGNOSES, getDiagnosis, type DiagnosisId } from "@/lib/diagnostics";
 import { PARAMETERS, classifyPh, type ParameterKey } from "@/lib/pool-parameters";
 import { buildGreenWaterProtocol } from "@/lib/protocols/green-water";
 import { analyzeChlorinator } from "@/lib/chlorinator";
+import {
+  CHLORINATOR_MODELS,
+  MODEL_TARGET_SALINITY_PPM,
+  findErrorCode,
+  type ChlorinatorModel,
+} from "@/lib/chlorinator/codes";
 
 export const Route = createFileRoute("/calculadora")({
   head: () => ({
