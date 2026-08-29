@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, Waves, Flame, Filter, Bot } from "lucide-react";
+import { MessageCircle, Waves, Flame, Filter, Bot, ShoppingCart } from "lucide-react";
 
 import { SiteNav } from "@/components/site/SiteNav";
+import { CatalogFinder } from "@/components/site/CatalogFinder";
+import { useCart } from "@/lib/cart";
+import { CATALOG_ITEMS } from "@/lib/catalog/items";
 import { waLink } from "@/lib/contact";
 import {
   CATALOG_VERSION,
@@ -100,6 +103,31 @@ function SpecTable({ spec }: { spec: TableSpec }) {
   );
 }
 
+function AddToCartButton({ itemName, label }: { itemName: string; label: string }) {
+  const { add, setOpen } = useCart();
+  const item = CATALOG_ITEMS.find((i) => i.name === itemName);
+  if (!item) return null;
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        add({
+          id: item.id,
+          name: item.name,
+          detail: item.detail,
+          price: item.price,
+          priceLabel: item.priceLabel,
+          image: item.image,
+        });
+        setOpen(true);
+      }}
+      className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary/60 px-5 py-3 text-sm font-bold text-primary transition hover:bg-primary/10"
+    >
+      <ShoppingCart className="h-4 w-4" /> {label}
+    </button>
+  );
+}
+
 function Catalogo() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -128,6 +156,8 @@ function Catalogo() {
           </a>
         </div>
       </section>
+
+      <CatalogFinder />
 
       {/* PISCINAS */}
       <section id="piscinas" className="py-16">
@@ -175,6 +205,7 @@ function Catalogo() {
                     >
                       <MessageCircle className="h-4 w-4" /> Cotizar {p.name}
                     </a>
+                    <AddToCartButton itemName={`Piscina ${p.name}`} label="Agregar al carrito" />
                   </div>
                 </div>
               </article>
@@ -249,6 +280,7 @@ function Catalogo() {
                   >
                     <MessageCircle className="h-4 w-4" /> Cotizar
                   </a>
+                  <AddToCartButton itemName={r.name} label="Agregar al carrito" />
                 </div>
               </article>
             ))}
