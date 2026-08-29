@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, Waves, Flame, Filter, Bot } from "lucide-react";
 
 import { SiteNav } from "@/components/site/SiteNav";
+import { CatalogFinder } from "@/components/site/CatalogFinder";
+import { useCart } from "@/lib/cart";
+import { CATALOG_ITEMS } from "@/lib/catalog/items";
 import { waLink } from "@/lib/contact";
 import {
   CATALOG_VERSION,
