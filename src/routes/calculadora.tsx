@@ -170,7 +170,7 @@ function SmartPool() {
     setValues({});
     setTargetPpm("");
     setBrand("");
-    setModel("");
+    setModel("EC08");
     setCode("");
     setDecanted(null);
   };
