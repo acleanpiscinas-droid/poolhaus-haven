@@ -277,6 +277,7 @@ function Catalogo() {
                   >
                     <MessageCircle className="h-4 w-4" /> Cotizar
                   </a>
+                  <AddToCartButton itemName={r.name} label="Agregar al carrito" />
                 </div>
               </article>
             ))}
