@@ -1,6 +1,6 @@
 /** Índice unificado del catálogo para búsqueda, filtros, ordenamiento y carrito. */
 
-import { FILTRATION, HEAT_PUMPS, POOLS, ROBOTS } from "@/lib/catalog";
+import { EXTRAS, FILTRATION, HEAT_PUMPS, POOLS, ROBOTS } from "@/lib/catalog";
 
 export const CATEGORIES = [
   "Piscinas",
@@ -91,11 +91,16 @@ const robotItems = ROBOTS.map((r) =>
   make(r.name, "Robot limpiafondos", "Robots", r.price, r.image),
 );
 
+const extraItems = EXTRAS.map((e) =>
+  make(e.name, e.detail, "Accesorios", e.unit ? `${e.price} / ${e.unit}` : e.price, e.image),
+);
+
 export const CATALOG_ITEMS: CatalogItem[] = [
   ...poolItems,
   ...heatItems,
   ...filtrationItems,
   ...robotItems,
+  ...extraItems,
 ];
 
 export type SortKey = "relevancia" | "precio-asc" | "precio-desc" | "nombre";
