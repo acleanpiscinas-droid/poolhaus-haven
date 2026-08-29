@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, Waves, Flame, Filter, Bot, ShoppingCart } from "lucide-react";
+import { MessageCircle, Waves, Bot, ShoppingCart } from "lucide-react";
 
 import { SiteNav } from "@/components/site/SiteNav";
 import { CatalogFinder } from "@/components/site/CatalogFinder";
@@ -8,14 +8,11 @@ import { CATALOG_ITEMS } from "@/lib/catalog/items";
 import { waLink } from "@/lib/contact";
 import {
   CATALOG_VERSION,
-  FILTRATION,
-  HEAT_PUMPS,
   POOLS,
   POOLS_NOTE,
   POOL_WARRANTY,
   ROBOTS,
   ROBOTS_NOTE,
-  type TableSpec,
 } from "@/lib/catalog";
 
 const TITLE = "Catálogo PoolHaus · Piscinas, climatización y equipamiento";
@@ -54,51 +51,6 @@ function SectionTitle({
       </span>
       <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">{title}</h2>
       {desc && <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{desc}</p>}
-    </div>
-  );
-}
-
-function SpecTable({ spec }: { spec: TableSpec }) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card">
-      {spec.image && (
-        <div className="aspect-[16/9] overflow-hidden border-b border-border/60">
-          <img src={spec.image} alt={spec.title} loading="lazy" className="h-full w-full object-cover" />
-        </div>
-      )}
-      <div className="p-5">
-        <h3 className="text-lg font-bold">{spec.title}</h3>
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-left text-sm">
-            <thead>
-              <tr className="border-b border-border/70 text-xs uppercase tracking-wide text-muted-foreground">
-                {spec.columns.map((c) => (
-                  <th key={c} className="whitespace-nowrap py-2 pr-4 font-semibold">
-                    {c}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {spec.rows.map((row, i) => (
-                <tr key={i} className="border-b border-border/40 last:border-0">
-                  {row.map((cell, j) => (
-                    <td
-                      key={j}
-                      className={`whitespace-nowrap py-2.5 pr-4 ${
-                        j === row.length - 1 ? "font-bold text-primary" : ""
-                      }`}
-                    >
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {spec.note && <p className="mt-4 text-xs text-muted-foreground">{spec.note}</p>}
-      </div>
     </div>
   );
 }
@@ -214,44 +166,10 @@ function Catalogo() {
         </div>
       </section>
 
-      {/* CLIMATIZACIÓN */}
-      <section id="climatizacion" className="border-t border-border/50 bg-secondary/20 py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionTitle
-            icon={Flame}
-            eyebrow="02 · Climatización"
-            title="Bombas de calor"
-            desc="Líneas Inverter y ON/OFF para climatizar tu piscina todo el año."
-          />
-          <div className="grid gap-6 lg:grid-cols-2">
-            {HEAT_PUMPS.map((s) => (
-              <SpecTable key={s.title} spec={s} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* EQUIPAMIENTO */}
-      <section id="equipamiento" className="border-t border-border/50 py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionTitle
-            icon={Filter}
-            eyebrow="03 · Equipamiento"
-            title="Filtración, cloración y accesorios"
-            desc="Bombas de circulación, filtros de arena, cloradores salinos y consumibles."
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {FILTRATION.map((s) => (
-              <SpecTable key={s.title} spec={s} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ROBOTS */}
       <section id="robots" className="border-t border-border/50 bg-secondary/20 py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <SectionTitle icon={Bot} eyebrow="04 · Limpieza" title="Robots limpiafondos" desc={ROBOTS_NOTE} />
+          <SectionTitle icon={Bot} eyebrow="02 · Limpieza" title="Robots limpiafondos" desc={ROBOTS_NOTE} />
           <div className="grid gap-6 md:grid-cols-2">
             {ROBOTS.map((r) => (
               <article key={r.name} className="overflow-hidden rounded-2xl border border-border bg-card">
