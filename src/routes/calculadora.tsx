@@ -365,8 +365,29 @@ function SmartPool() {
               {diagnosis.tool === "clorador" && (
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   <Field label="Marca del clorador" value={brand} onChange={setBrand} placeholder="Marca" type="text" />
-                  <Field label="Modelo" value={model} onChange={setModel} placeholder="Modelo" type="text" />
-                  <Field label="Código de error" value={code} onChange={setCode} placeholder="EC08" type="text" />
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold">Modelo</label>
+                    <div className="flex gap-2">
+                      {CHLORINATOR_MODELS.map((m) => (
+                        <button
+                          key={m}
+                          type="button"
+                          onClick={() => setModel(m)}
+                          className={`flex-1 rounded-lg border px-4 py-3 text-sm font-bold transition ${
+                            model === m
+                              ? "border-primary bg-primary/10 text-primary"
+                              : "border-border hover:border-primary"
+                          }`}
+                        >
+                          {m}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      Salinidad objetivo de referencia: {MODEL_TARGET_SALINITY_PPM} ppm.
+                    </p>
+                  </div>
+                  <Field label="Código de error" value={code} onChange={setCode} placeholder="E4" type="text" />
                   <Field
                     label="Salinidad objetivo del fabricante (ppm)"
                     value={targetPpm}
