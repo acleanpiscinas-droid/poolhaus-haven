@@ -542,6 +542,38 @@ function SmartPool() {
                       Sal a agregar: <strong>{formatKg(chlorinator.salt.kg)}</strong>
                     </p>
                   )}
+                  {errorInfo ? (
+                    <div className="mt-4 rounded-xl border border-primary/40 bg-secondary/40 p-4">
+                      <p className="text-sm font-black text-primary">
+                        {model} · Código {errorInfo.code}
+                      </p>
+                      <dl className="mt-3 space-y-2 text-sm">
+                        <div>
+                          <dt className="text-xs uppercase tracking-wide text-muted-foreground">Causa</dt>
+                          <dd className="font-medium">{errorInfo.meaning}</dd>
+                        </div>
+                        <div>
+                          <dt className="text-xs uppercase tracking-wide text-muted-foreground">Valor normal</dt>
+                          <dd className="font-medium">{errorInfo.normal}</dd>
+                        </div>
+                        <div>
+                          <dt className="text-xs uppercase tracking-wide text-muted-foreground">Solución</dt>
+                          <dd className="font-medium">{errorInfo.solution}</dd>
+                        </div>
+                      </dl>
+                      {errorInfo.manual && (
+                        <p className="mt-3 text-xs text-muted-foreground">
+                          Este código suele requerir servicio técnico: escribinos por WhatsApp si persiste.
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    code.trim() !== "" && (
+                      <p className="mt-4 text-sm text-muted-foreground">
+                        No encontramos el código “{code}” en la tabla de {model}. Verificá el manual del equipo.
+                      </p>
+                    )
+                  )}
                   <p className="mt-3 rounded-lg bg-secondary/60 px-3 py-2 text-xs text-muted-foreground">
                     {chlorinator.disclaimer}
                   </p>
