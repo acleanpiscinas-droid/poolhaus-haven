@@ -85,7 +85,7 @@ function SmartPool() {
   // Herramientas
   const [targetPpm, setTargetPpm] = useState("");
   const [brand, setBrand] = useState("");
-  const [model, setModel] = useState("");
+  const [model, setModel] = useState<ChlorinatorModel>("EC08");
   const [code, setCode] = useState("");
   const [decanted, setDecanted] = useState<boolean | null>(null);
 
