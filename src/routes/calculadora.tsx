@@ -138,6 +138,9 @@ function SmartPool() {
         })
       : null;
 
+  const errorInfo =
+    diagnosis?.tool === "clorador" && code.trim() !== "" ? findErrorCode(model, code) : null;
+
   const protocol =
     diagnosis?.protocol === "agua-verde" && volumeReady
       ? buildGreenWaterProtocol({ liters, ph: Number.isFinite(ph) ? ph : undefined })
