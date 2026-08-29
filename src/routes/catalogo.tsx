@@ -203,6 +203,7 @@ function Catalogo() {
                     >
                       <MessageCircle className="h-4 w-4" /> Cotizar {p.name}
                     </a>
+                    <AddToCartButton itemName={`Piscina ${p.name}`} label="Agregar al carrito" />
                   </div>
                 </div>
               </article>
